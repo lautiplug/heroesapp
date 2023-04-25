@@ -1,0 +1,20 @@
+basicamente para que en un componente se muestre el navbar y en la seccion login NO, lo que se hizo fue crear un componente nuevo "HeroesRoutes" donde ponemos las Routes y le asignamos los componentes a mostrarse, dc, marvel, index etc.
+
+y despues en el AppRouter que es el Router principal, simplemente dejamos que se muestre el componente pero no asignamos el navbar, es decir no lo importamos.
+
+
+//// Mostrar heroes ////
+
+se realizó una importacion de la data y creamos una funcion de JS donde hicimos una validacion hard coded donde especificamos que si DC Comics y Marvel Comics eran verdaderos se mostraría la información y en caso de que no, muestre un error.
+
+posteriormente mapeamos la data en HeroList donde desestructuramos el "publisher" y mostramos la información poniendole la key correspondiente. Asimismo se compartió el HeroList en DcPage y MarvelPage con el argumento ' publisher="DC o Marvel" '
+
+
+//// Search Bar ////
+
+Se realizó la implementacion de barra de busqueda utilizando el custom hook anteriormente creado, utilizamos useNavigate y useLocation para la navegacion y la localizacion del query, posteriormente instalamos un paquete externo llamado query-string para obtener los valores de la barra de busqueda, es decir el valor de ?q={datoIngresado} para asi poder mostrarlo en el componente
+
+Se realizó el listado de heroes creando un hook de getHeroeByName donde pasamos por defecto el parametro name, donde si no se le envia nada es un string vacío y también lo pasamos a lowercase y validamos que si el length es 0, es un array vacío.
+Después filtramos los heroes donde están pasados a lowercase y si incluyen el name, muestra los resultados correspondientes.
+
+En Search.jsx importamos el getHeroeByName con la q del query y lo asignamos a una constante que usaremos para mapear los resultados obtenidos del filtro en el hook getHeroeByName, también pasamos la key y el parametro h en forma de spread operator para obtener todos los resultados
